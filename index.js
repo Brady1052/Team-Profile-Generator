@@ -57,7 +57,35 @@ function secondPrompt() {
 
 function addEngineer() {
     console.log('you added an Engineer!')
+    inquirer.prompt([
+{
+type: 'input',
+message: 'What is the engineers name?',
+name:'name'
+},
+{
+type: 'input',
+message:'What is the engineers ID?',
+name: 'ID'
+},
+{
+type: 'input',
+message: 'What is the engineers email?',
+name: 'email',
+},
+{
+type: 'input',
+message: 'What is the engineers GitHub username?',
+name:'username'
 }
+
+    ])
+ .then((answers) => {
+console.log(answers)
+secondPrompt()
+ })
+}
+
 function addIntern(){
     console.log('you added an Intern!')
 }
