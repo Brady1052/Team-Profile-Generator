@@ -88,4 +88,30 @@ secondPrompt()
 
 function addIntern(){
     console.log('you added an Intern!')
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'What is the interns name?',
+            name:'name'
+            },
+            {
+            type: 'input',
+            message:'What is the interns ID?',
+            name: 'ID'
+            },
+            {
+            type: 'input',
+            message: 'What is the interns email?',
+            name: 'email',
+            },
+            {
+            type: 'input',    
+            message: 'What school does the intern attend?',    
+            name: 'school'    
+            },
+    ])
+    .then((answers) => {
+        console.log(answers)
+        secondPrompt()
+         })  
 }
