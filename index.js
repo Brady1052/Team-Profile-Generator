@@ -46,10 +46,18 @@ function secondPrompt() {
         if (data.addMore == 'Engineer') {
             addEngineer()
         }
-
+        if (data.addMore =='Intern'){
+            addIntern()
+        }
+        else{
+            fs.writeFile
+        }
     })
 }
 
 function addEngineer() {
     console.log('you added an Engineer!')
+}
+function addIntern(){
+    console.log('you added an Intern!')
 }
