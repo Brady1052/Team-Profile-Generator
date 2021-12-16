@@ -158,7 +158,7 @@ function generateHTML({managerName,managerID,managerEmailAddress,managerOfficeNu
       <h5 class="card-title">Manager</h5>
       <h3 class="card-text">${managerName}</h3>
       <p class="card-text">ID:${managerID}</p>
-      <p class="card-text">Email:${managerEmailAddress}</p>
+      <p class="card-text">Email:<a href='mailto:${managerEmailAddress}' target='_blank' rel='noopener noreferrer'>${managerEmailAddress}</a></p>
       <p class="card-text">Office Number:${managerOfficeNumber}</p>
     </div>
     </div> 
@@ -168,13 +168,13 @@ function generateHTML({managerName,managerID,managerEmailAddress,managerOfficeNu
     function generateEngineer ({name, ID, email, username}) {
      return `
      <div class="card" style="width: 18rem;">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SZai1T5EDDaee4FnstiiwB23CpsRSODqag&usqp=CAU" class="card-img-top" alt="...">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE4JTClieZDTx27XRB8MS9JIgSYMoLlM7Fcg&usqp=CAU" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">Engineer</h5>
       <h3 class="card-text">${name}</h3>
       <p class="card-text">ID:${ID}</p>
-      <p class="card-text">Email:${email}</p>
-      <p class="card-text">GitHub Username:<a href="https://github.com/${username}">${username}</a></p>
+      <p class="card-text">Email:<a href='mailto:${email}' target='_blank' rel='noopener noreferrer'>${email}</a></p>
+      <p class="card-text">GitHub Username:<a href="https://github.com/${username}" target='_blank'>${username}</a></p>
     </div>
     </div>  
      `   
@@ -183,12 +183,12 @@ function generateHTML({managerName,managerID,managerEmailAddress,managerOfficeNu
     function generateIntern ({name, ID, email, school}){
         return `
         <div class="card" style="width: 18rem;">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SZai1T5EDDaee4FnstiiwB23CpsRSODqag&usqp=CAU" class="card-img-top" alt="...">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmCGRvheIaBrz9osHJQO-0Ws8ArHIej0f1fA&usqp=CAU" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title">Intern</h5>
           <h3 class="card-text">${name}</h3>
           <p class="card-text">ID:${ID}</p>
-          <p class="card-text">Email:${email}</p>
+          <p class="card-text">Email:<a href='mailto:${email}' target='_blank' rel='noopener noreferrer'>${email}</a></p>
           <p class="card-text">Attends:${school}</p>
         </div>
         </div>        
