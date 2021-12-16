@@ -55,9 +55,14 @@ function secondPrompt() {
         if (data.addMore =='Intern'){
             addIntern()
         }
-        else{
-            endProcess()
-            console.log('Thank you for using the Team Profile Generator! Click on the index.html file. Then right click anywhere on it and click "Open in Default Browser" to see your team!')
+        if (data.addMore == 'No')
+        { fs.appendFile('index.html', endProcess(), 'UTF-8', (err)=>{
+            if (err){
+                console.log(err)
+            } else {
+                console.log('Thank you for using the Team Profile Generator! Click on the index.html file. Then right click anywhere on it and click "Open in Default Browser" to see your team!')     
+            }
+        })
         }
     })
 }
