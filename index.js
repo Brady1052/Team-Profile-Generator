@@ -41,7 +41,6 @@ function firstPrompt() {
 
 
 function secondPrompt() {
-   console.log('second prompt')
     inquirer.prompt(
         {
             type: 'list',
@@ -57,13 +56,13 @@ function secondPrompt() {
             addIntern()
         }
         else{
-            fs.writeFile
+            endProcess()
+            console.log('Thank you for using the Team Profile Generator! Click on the index.html file. Then right click anywhere on it and click "Open in Default Browser" to see your team!')
         }
     })
 }
 
 function addEngineer() {
-    console.log('you added an Engineer!')
     inquirer.prompt([
 {
 type: 'input',
@@ -92,7 +91,7 @@ name:'username'
             if (err){
                 console.log(err)
             } else {
-                console.log('Success!')
+                console.log('Successfully added Engineer!')
             }
             secondPrompt()
         })
@@ -101,7 +100,6 @@ name:'username'
 
  
 function addIntern(){
-    console.log('you added an Intern!')
     inquirer.prompt([
         {
             type: 'input',
@@ -125,7 +123,13 @@ function addIntern(){
             },
     ])
     .then((answers) => {
-        console.log(answers)
+        fs.appendFile('index.html', generateIntern(answers), 'UTF-8', (err) => {
+            if(err){
+                console.log(err)
+            }else {
+                console.log(' Succesfully Added Intern!')
+            }
+        })
         secondPrompt()
          })  
 }
@@ -161,12 +165,34 @@ function generateHTML({managerName,managerID,managerEmailAddress,managerOfficeNu
      <div class="card" style="width: 18rem;">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SZai1T5EDDaee4FnstiiwB23CpsRSODqag&usqp=CAU" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">Manager</h5>
+      <h5 class="card-title">Engineer</h5>
       <h3 class="card-text">${name}</h3>
       <p class="card-text">ID:${ID}</p>
       <p class="card-text">Email:${email}</p>
-      <p class="card-text">Office Number:${username}</p>
+      <p class="card-text">GitHub Username:${username}</p>
     </div>
     </div>  
      `   
+    }
+
+    function generateIntern ({name, ID, email, school}){
+        return `
+        <div class="card" style="width: 18rem;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4SZai1T5EDDaee4FnstiiwB23CpsRSODqag&usqp=CAU" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Intern</h5>
+          <h3 class="card-text">${name}</h3>
+          <p class="card-text">ID:${ID}</p>
+          <p class="card-text">Email:${email}</p>
+          <p class="card-text">Attends:${school}</p>
+        </div>
+        </div>        
+        `
+    }
+
+    function endProcess(){
+        return`
+      </body>  
+      </html>  
+    `
     }
