@@ -174,7 +174,7 @@ function generateHTML({managerName,managerID,managerEmailAddress,managerOfficeNu
       <h3 class="card-text">${name}</h3>
       <p class="card-text">ID:${ID}</p>
       <p class="card-text">Email:${email}</p>
-      <p class="card-text">GitHub Username:${username}</p>
+      <p class="card-text">GitHub Username:<a href="https://github.com/${username}">${username}</a></p>
     </div>
     </div>  
      `   
